@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browse Campus Items | Lost & Found Portal</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===================================================================
+       NAVBAR
+  =================================================================== -->
+  <nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <div class="brand-icon">
+          <i class="fas fa-compass"></i>
+        </div>
+        <div>
+          <span>Campus <span style="color: var(--secondary-color);">Lost & Found</span></span>
+        </div>
+      </a>
+      
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
+        <i class="fas fa-bars fs-4"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-1">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i> Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="browse.html"><i class="fas fa-search me-1"></i> Browse Items</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="report-lost.html"><i class="fas fa-circle-question me-1 text-danger"></i> Report Lost</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="report-found.html"><i class="fas fa-hand-holding-heart me-1 text-success"></i> Report Found</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="my-reports.html"><i class="fas fa-folder-open me-1"></i> My Reports</a>
+          </li>
+          <li class="nav-item ms-lg-2 mt-2 mt-lg-0" id="nav-auth-section"></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===================================================================
+       PAGE HEADER & SEARCH BAR
+  =================================================================== -->
+  <div class="py-4 bg-light border-bottom">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-3 mb-lg-0">
+          <h2 class="fw-bold mb-1">Browse Campus Belongings</h2>
+          <p class="text-muted small mb-0">Search through active lost and found reports filed across departments and grounds.</p>
+        </div>
+        <div class="col-lg-6">
+          <div class="input-group shadow-sm">
+            <span class="input-group-text bg-white border-end-0 text-muted ps-3">
+              <i class="fas fa-search"></i>
+            </span>
+            <input type="text" id="searchInput" class="form-control border-start-0 py-2" placeholder="Search lost or found items (e.g., Boat Earphones, ID card, Physics book)...">
+            <button class="btn btn-primary-custom" type="button" onclick="performSearch()">Search</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       MAIN CONTENT: FILTERS & RESULTS
+  =================================================================== -->
+  <main class="py-5">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Sidebar Filters -->
+        <div class="col-lg-3">
+          <div class="card border-0 shadow-sm rounded-4 p-4 sticky-top" style="top: 85px; z-index: 10;">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h5 class="fw-bold mb-0"><i class="fas fa-filter text-primary me-2"></i>Filters</h5>
+              <button class="btn btn-link btn-sm text-decoration-none text-muted p-0" onclick="resetFilters()">Reset</button>
+            </div>
+
+            <!-- Report Type -->
+            <div class="mb-4">
+              <label class="form-label text-muted small text-uppercase fw-bold">Report Type</label>
+              <div class="d-flex flex-column gap-2">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="filterType" id="typeAll" value="ALL" checked>
+                  <label class="form-check-label fw-semibold" for="typeAll">All Items</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="filterType" id="typeLost" value="LOST">
+                  <label class="form-check-label text-danger fw-semibold" for="typeLost">
+                    <i class="fas fa-search me-1"></i> Lost Items
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="filterType" id="typeFound" value="FOUND">
+                  <label class="form-check-label text-success fw-semibold" for="typeFound">
+                    <i class="fas fa-check-circle me-1"></i> Found Items
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Category -->
+            <div class="mb-4">
+              <label for="filterCategory" class="form-label text-muted small text-uppercase fw-bold">Category</label>
+              <select id="filterCategory" class="form-select form-select-sm">
+                <option value="ALL">All Categories</option>
+                <option value="Electronics">Electronics</option>
+                <option value="ID Cards">ID Cards</option>
+                <option value="Books">Books & Notes</option>
+                <option value="Accessories">Accessories & Wallets</option>
+                <option value="Bags">Bags & Backpacks</option>
+                <option value="Keys">Keys</option>
+                <option value="Documents">Documents</option>
+                <option value="Clothing">Clothing</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <!-- Location Filter -->
+            <div class="mb-4">
+              <label for="filterLocation" class="form-label text-muted small text-uppercase fw-bold">Location</label>
+              <input type="text" id="filterLocation" class="form-control form-control-sm" placeholder="e.g. Library, Canteen, Lab...">
+            </div>
+
+            <!-- Status Filter -->
+            <div class="mb-3">
+              <label for="filterStatus" class="form-label text-muted small text-uppercase fw-bold">Status</label>
+              <select id="filterStatus" class="form-select form-select-sm">
+                <option value="ALL">All Statuses</option>
+                <option value="ACTIVE" selected>Active Only</option>
+                <option value="CLAIMED">Claimed</option>
+                <option value="MATCHED">Matched</option>
+                <option value="RETURNED">Returned</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Items Grid -->
+        <div class="col-lg-9">
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <span class="text-muted small fw-semibold" id="resultsCount">Loading items...</span>
+            <div class="spinner-border spinner-border-sm text-primary d-none" id="searchLoader"></div>
+          </div>
+
+          <!-- Empty State -->
+          <div class="empty-state card border-0 shadow-sm rounded-4 d-none" id="emptyState">
+            <div class="empty-state-icon">
+              <i class="fas fa-box-open"></i>
+            </div>
+            <h4 class="fw-bold mb-2">No matching items found</h4>
+            <p class="text-muted mb-4">Try broadening your search keywords or clearing location and category filters.</p>
+            <div>
+              <button class="btn btn-outline-custom me-2" onclick="resetFilters()">Reset All Filters</button>
+              <a href="report-lost.html" class="btn btn-primary-custom">Report It as Lost</a>
+            </div>
+          </div>
+
+          <!-- Cards Grid -->
+          <div class="row g-4" id="itemsGrid"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-custom">
+    <div class="container text-center">
+      <p class="mb-0 small">© 2026 Campus Lost & Found Portal • College Full-Stack Java Project</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/browse.js"></script>
+</body>
+</html>

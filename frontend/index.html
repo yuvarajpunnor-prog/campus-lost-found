@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Lost & Found Portal | Home</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- FontAwesome 6 Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+  <!-- Google Fonts: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Custom Modern Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===================================================================
+       NAVBAR
+  =================================================================== -->
+  <nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <div class="brand-icon">
+          <i class="fas fa-compass"></i>
+        </div>
+        <div>
+          <span>Campus <span style="color: var(--secondary-color);">Lost & Found</span></span>
+        </div>
+      </a>
+      
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
+        <i class="fas fa-bars fs-4"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-1">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html"><i class="fas fa-home me-1"></i> Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="browse.html"><i class="fas fa-search me-1"></i> Browse Items</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="report-lost.html"><i class="fas fa-circle-question me-1 text-danger"></i> Report Lost</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="report-found.html"><i class="fas fa-hand-holding-heart me-1 text-success"></i> Report Found</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="my-reports.html"><i class="fas fa-folder-open me-1"></i> My Reports</a>
+          </li>
+          <li class="nav-item ms-lg-2 mt-2 mt-lg-0" id="nav-auth-section">
+            <!-- Populated dynamically by api.js -->
+            <a href="login.html" class="btn btn-outline-custom me-2"><i class="fas fa-right-to-bracket"></i> Login</a>
+            <a href="login.html?tab=register" class="btn btn-primary-custom"><i class="fas fa-user-plus"></i> Register</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===================================================================
+       HERO SECTION
+  =================================================================== -->
+  <header class="hero-section">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-7">
+          <div class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 rounded-pill mb-3 fw-semibold">
+            <i class="fas fa-shield-halved me-1"></i> Official College Campus Portal
+          </div>
+          <h1 class="hero-title">
+            Lost Something on <span class="gradient-text">Campus?</span>
+          </h1>
+          <p class="hero-subtitle">
+            Find what you lost. Return what you found. Together, we make our campus more responsible, connected, and trustworthy.
+          </p>
+          <div class="hero-buttons">
+            <a href="report-lost.html" class="btn btn-danger btn-lg px-4 py-3 fw-bold rounded-3 shadow-sm d-inline-flex align-items-center gap-2">
+              <i class="fas fa-circle-question"></i> Report Lost Item
+            </a>
+            <a href="report-found.html" class="btn btn-success btn-lg px-4 py-3 fw-bold rounded-3 shadow-sm d-inline-flex align-items-center gap-2">
+              <i class="fas fa-hand-holding-heart"></i> Report Found Item
+            </a>
+            <a href="browse.html" class="btn btn-outline-custom btn-lg px-4 py-3 fw-bold rounded-3">
+              <i class="fas fa-magnifying-glass"></i> Browse Items
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="hero-card-visual position-relative">
+            <!-- Floating badge pills -->
+            <div class="floating-pill pill-1">
+              <i class="fas fa-check-circle"></i> Item Verified & Recovered
+            </div>
+            <div class="floating-pill pill-2">
+              <i class="fas fa-radar"></i> Smart Campus Matching
+            </div>
+
+            <div class="p-4 bg-light rounded-4 text-center">
+              <div class="mb-3">
+                <span class="avatar-circle mx-auto" style="width: 70px; height: 70px; font-size: 2rem; background: linear-gradient(135deg, #1e3a8a, #0284c7);">
+                  <i class="fas fa-box-open"></i>
+                </span>
+              </div>
+              <h5 class="fw-bold mb-1">Campus Safe Custody</h5>
+              <p class="text-muted small mb-3">All found belongings are indexed and safely held at designated campus reception desks.</p>
+
+              <div class="d-flex justify-content-between p-3 bg-white rounded-3 border mb-2 text-start">
+                <div>
+                  <small class="text-muted d-block">Quick Verification</small>
+                  <span class="fw-bold text-dark">Student ID Authentication</span>
+                </div>
+                <i class="fas fa-id-card text-primary fs-3 align-self-center"></i>
+              </div>
+
+              <div class="d-flex justify-content-between p-3 bg-white rounded-3 border text-start">
+                <div>
+                  <small class="text-muted d-block">Instant Notification</small>
+                  <span class="fw-bold text-dark">Automated Match Alerts</span>
+                </div>
+                <i class="fas fa-bell text-warning fs-3 align-self-center"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================================================================
+       LIVE STATISTICS SECTION
+  =================================================================== -->
+  <section class="container stats-banner">
+    <div class="row g-3">
+      <div class="col-6 col-md-3">
+        <div class="stat-card">
+          <div class="stat-icon blue">
+            <i class="fas fa-clipboard-list"></i>
+          </div>
+          <div class="stat-number" id="homeStatReported">--</div>
+          <div class="stat-label">Items Reported</div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3">
+        <div class="stat-card">
+          <div class="stat-icon green">
+            <i class="fas fa-circle-check"></i>
+          </div>
+          <div class="stat-number" id="homeStatRecovered">--</div>
+          <div class="stat-label">Items Recovered</div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3">
+        <div class="stat-card">
+          <div class="stat-icon amber">
+            <i class="fas fa-clock-rotate-left"></i>
+          </div>
+          <div class="stat-number" id="homeStatActive">--</div>
+          <div class="stat-label">Active Reports</div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3">
+        <div class="stat-card">
+          <div class="stat-icon purple">
+            <i class="fas fa-hands-holding-circle"></i>
+          </div>
+          <div class="stat-number" id="homeStatReturns">--</div>
+          <div class="stat-label">Successful Returns</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       WHY USE CAMPUS LOST & FOUND?
+  =================================================================== -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Why Use Campus Lost & Found?</h2>
+        <p class="section-subtitle">A centralized, trustworthy platform designed specifically for students, professors, and college campus staff.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-box">
+            <div class="feature-icon-wrapper" style="background: #e0f2fe; color: #0369a1;">
+              <i class="fas fa-bolt"></i>
+            </div>
+            <h5 class="fw-bold mb-2">Easy Reporting</h5>
+            <p class="text-muted small">Report a lost item or submit a found object within 60 seconds with clear photos and location details.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-box">
+            <div class="feature-icon-wrapper" style="background: #fef3c7; color: #b45309;">
+              <i class="fas fa-brain"></i>
+            </div>
+            <h5 class="fw-bold mb-2">Smart Search</h5>
+            <p class="text-muted small">Intelligent keyword and location filters instantly pinpoint matching campus items across all blocks.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-box">
+            <div class="feature-icon-wrapper" style="background: #dcfce7; color: #15803d;">
+              <i class="fas fa-shield-check"></i>
+            </div>
+            <h5 class="fw-bold mb-2">Secure Claims</h5>
+            <p class="text-muted small">Verify genuine ownership using student ID validation and private identifying questions before handover.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-box">
+            <div class="feature-icon-wrapper" style="background: #f3e8ff; color: #6b21a8;">
+              <i class="fas fa-rotate"></i>
+            </div>
+            <h5 class="fw-bold mb-2">Quick Recovery</h5>
+            <p class="text-muted small">Coordinated handover points at campus security posts and department offices ensure fast reunion.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       RECENTLY FOUND ITEMS
+  =================================================================== -->
+  <section class="section-padding bg-white border-top border-bottom">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-end mb-4 flex-wrap gap-2">
+        <div>
+          <span class="badge bg-success bg-opacity-10 text-success fw-semibold mb-2 px-3 py-1 rounded-pill">
+            <i class="fas fa-bell me-1"></i> Fresh Submissions
+          </span>
+          <h2 class="section-title mb-0">Recently Found Items</h2>
+          <p class="text-muted small mb-0">Did you lose any of these on campus recently? Check and submit a claim.</p>
+        </div>
+        <a href="browse.html?type=FOUND" class="btn btn-outline-custom">
+          View All Found Items <i class="fas fa-arrow-right ms-1"></i>
+        </a>
+      </div>
+
+      <div class="row g-4" id="recentFoundGrid">
+        <div class="col-12 text-center py-5">
+          <div class="spinner-border text-primary" role="status"></div>
+          <p class="text-muted mt-2">Loading recent items...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       FOOTER
+  =================================================================== -->
+  <footer class="footer-custom">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <div class="brand-icon" style="width: 36px; height: 36px; font-size: 1rem;">
+              <i class="fas fa-compass"></i>
+            </div>
+            <span class="fw-bold text-white fs-5">Campus Lost & Found</span>
+          </div>
+          <p class="small text-muted mb-3">
+            A comprehensive, digital lost and found management platform built for our college campus community.
+          </p>
+          <div class="text-muted small">
+            <i class="fas fa-location-dot me-1 text-primary"></i> Main Campus Admin Block, Room 104
+          </div>
+        </div>
+
+        <div class="col-6 col-lg-2">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled small d-flex flex-column gap-2">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="browse.html">Browse Items</a></li>
+            <li><a href="report-lost.html">Report Lost</a></li>
+            <li><a href="report-found.html">Report Found</a></li>
+            <li><a href="my-reports.html">My Reports</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-lg-3">
+          <h5>Categories</h5>
+          <ul class="list-unstyled small d-flex flex-column gap-2">
+            <li><a href="browse.html?category=Electronics">Electronics & Chargers</a></li>
+            <li><a href="browse.html?category=ID Cards">Student ID Cards</a></li>
+            <li><a href="browse.html?category=Books">Books & Lab Records</a></li>
+            <li><a href="browse.html?category=Accessories">Wallets & Watches</a></li>
+            <li><a href="browse.html?category=Bags">Backpacks & Keys</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3">
+          <h5>Campus Helpline</h5>
+          <p class="small text-muted">For urgent assistance or high-value belonging retrieval, contact campus security directly.</p>
+          <div class="p-3 bg-dark rounded-3 border border-secondary border-opacity-25">
+            <div class="small text-white fw-bold"><i class="fas fa-phone-volume text-success me-2"></i> Security Desk: 080-2345-6789</div>
+            <div class="small text-muted mt-1"><i class="fas fa-envelope text-info me-2"></i> lostfound@campus.edu</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="mb-0">© 2026 Campus Lost & Found Portal • College Full-Stack Java Project • Built with Spring Boot & MySQL</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- API Client -->
+  <script src="js/api.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      // 1. Fetch Landing Page Stats
+      try {
+        const stats = await fetchApi('/admin/dashboard');
+        const totalReported = (stats.totalLostItems || 0) + (stats.totalFoundItems || 0);
+        document.getElementById('homeStatReported').textContent = totalReported;
+        document.getElementById('homeStatRecovered').textContent = stats.itemsReturned || 0;
+        document.getElementById('homeStatActive').textContent = stats.activeReports || 0;
+        document.getElementById('homeStatReturns').textContent = stats.itemsReturned || 0;
+      } catch (e) {
+        console.warn('Could not fetch stats for homepage:', e);
+      }
+
+      // 2. Fetch Recently Found Items
+      try {
+        const recentFound = await fetchApi('/items/recent-found');
+        const grid = document.getElementById('recentFoundGrid');
+        
+        if (!recentFound || recentFound.length === 0) {
+          grid.innerHTML = '<div class="col-12 text-center text-muted py-4">No recent found items reported yet.</div>';
+          return;
+        }
+
+        const defaultImages = {
+          'Electronics': 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600&auto=format&fit=crop&q=80',
+          'Books': 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=600&auto=format&fit=crop&q=80',
+          'ID Cards': 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop&q=80',
+          'Accessories': 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&auto=format&fit=crop&q=80',
+          'Bags': 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&auto=format&fit=crop&q=80',
+          'Other': 'https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?w=600&auto=format&fit=crop&q=80'
+        };
+
+        grid.innerHTML = recentFound.slice(0, 3).map(item => {
+          const fallback = defaultImages[item.category] || defaultImages['Other'];
+          const img = item.imageUrl && item.imageUrl.trim() ? item.imageUrl : fallback;
+
+          return `
+            <div class="col-md-6 col-lg-4">
+              <div class="item-card shadow-sm">
+                <div class="item-card-image-wrap">
+                  <img src="${img}" alt="${item.itemName}" class="item-card-img" onerror="this.src='${fallback}'">
+                  <span class="item-badge-type badge-found"><i class="fas fa-check-circle me-1"></i> FOUND</span>
+                  <span class="item-badge-category">${item.category}</span>
+                </div>
+                <div class="item-card-body">
+                  <h5 class="item-card-title">${item.itemName}</h5>
+                  <div class="item-meta-row">
+                    <i class="fas fa-location-dot text-primary"></i>
+                    <span class="text-truncate">${item.location}</span>
+                  </div>
+                  <div class="item-meta-row">
+                    <i class="fas fa-calendar-day text-muted"></i>
+                    <span>${formatDate(item.date)}</span>
+                  </div>
+                  <p class="item-card-desc">${item.description || 'Found on campus.'}</p>
+                  <div class="item-card-footer">
+                    ${getStatusBadge(item.status)}
+                    <a href="item-details.html?id=${item.id}" class="btn btn-sm btn-outline-custom">
+                      View Details <i class="fas fa-arrow-right ms-1"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+
+      } catch (e) {
+        console.warn('Could not fetch recent found items:', e);
+      }
+    });
+  </script>
+</body>
+</html>
