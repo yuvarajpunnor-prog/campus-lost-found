@@ -1,5 +1,33 @@
 # 🎓 Campus Lost & Found Portal
-> **A Full-Stack College Web Application built with Java, Spring Boot, Spring Data JPA, Hibernate, MySQL, and Modern Responsive Frontend.**
+> **A Full-Stack Deployed Web Application built with Node.js, Express, JavaScript (ES6+), HTML5, CSS3, and RESTful APIs.**
+
+[![Node.js Version](https://img.shields.io/badge/Node.js-v18%2B-green.svg)](https://nodejs.org/)
+[![Deploy Status](https://img.shields.io/badge/Deployment-Live%20Application-brightgreen.svg)](#-live-deployment-link)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
+---
+
+## 🚀 Live Deployment Link
+🔗 **Live Application URL:** [https://campus-lost-found.onrender.com](https://campus-lost-found.onrender.com)  
+*(Also deployable in 1-click to Vercel and Render via this repository)*
+
+---
+
+## 📌 Quick Start with Node.js (Run in 10 Seconds)
+```bash
+# 1. Install dependencies
+npm install
+
+# 2. Start the application
+npm start
+```
+Then open your browser at: **`http://localhost:8080`**
+
+### 🔑 Demo Login Credentials
+| Role | Email | Password |
+|---|---|---|
+| **Student** | `rahul@campus.edu` | `password123` |
+| **Admin** | `admin@campus.edu` | `admin123` |
 
 ---
 

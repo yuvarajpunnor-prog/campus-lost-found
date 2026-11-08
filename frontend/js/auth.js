@@ -81,11 +81,7 @@ async function handleLogin(e) {
       submitBtn.innerHTML = '<i class="fas fa-right-to-bracket me-2"></i>Sign In';
     }
   } catch (err) {
-    let msg = err.message || 'Login failed.';
-    if (msg.includes('Failed to fetch') || msg.includes('NetworkError') || msg.includes('ERR_CONNECTION_REFUSED')) {
-      msg = '⚠️ Backend server is not running! Open terminal and run: java -jar backend\\target\\campus-lost-found-1.0.0.jar';
-    }
-    showToast(msg, 'error');
+    showToast(err.message || 'Login failed. Please check your credentials.', 'error');
     submitBtn.disabled = false;
     submitBtn.innerHTML = '<i class="fas fa-right-to-bracket me-2"></i>Sign In';
   }

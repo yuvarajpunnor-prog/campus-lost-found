@@ -28,3 +28,8 @@ Thumbs.db
 
 # Maven wrapper (keep mvnw but ignore bin)
 !backend/.mvn/
+
+# Node.js
+node_modules/
+npm-debug.log*
+package-lock.json

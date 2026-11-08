@@ -1,8 +1,10 @@
 /**
  * Central API Client and Utility Functions
- * Campus Lost & Found Portal
+ * Campus Lost & Found Portal (Node.js & Express / Spring Boot Compatible)
  */
-const API_BASE = 'http://localhost:8080/api';
+const API_BASE = (window.location.port === '5500') 
+  ? 'http://localhost:8080/api' 
+  : '/api';
 // -------------------------------------------------------------
 // Authentication State Management
 // -------------------------------------------------------------
