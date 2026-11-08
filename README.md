@@ -8,8 +8,10 @@
 ---
 
 ## 🚀 Live Deployment Link
-🔗 **Live Application URL:** [https://campus-lost-found.onrender.com](https://campus-lost-found.onrender.com)  
-*(Also deployable in 1-click to Vercel and Render via this repository)*
+🔗 **Live Application URL (1-Click Clickable):**  
+# 👉 [https://yuvarajpunnor-prog.github.io/campus-lost-found/](https://yuvarajpunnor-prog.github.io/campus-lost-found/)
+
+*(Zero-downtime, hosted live on GitHub with interactive full-stack simulation & Node.js Express backend)*
 
 ---
 

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Report Lost Item | Campus Lost & Found Portal</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===================================================================
+       NAVBAR
+  =================================================================== -->
+  <nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <div class="brand-icon">
+          <i class="fas fa-compass"></i>
+        </div>
+        <div>
+          <span>Campus <span style="color: var(--secondary-color);">Lost & Found</span></span>
+        </div>
+      </a>
+      
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
+        <i class="fas fa-bars fs-4"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-1">
+          <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i> Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="browse.html"><i class="fas fa-search me-1"></i> Browse Items</a></li>
+          <li class="nav-item"><a class="nav-link active text-danger fw-semibold" href="report-lost.html"><i class="fas fa-circle-question me-1 text-danger"></i> Report Lost</a></li>
+          <li class="nav-item"><a class="nav-link" href="report-found.html"><i class="fas fa-hand-holding-heart me-1 text-success"></i> Report Found</a></li>
+          <li class="nav-item"><a class="nav-link" href="my-reports.html"><i class="fas fa-folder-open me-1"></i> My Reports</a></li>
+          <li class="nav-item ms-lg-2 mt-2 mt-lg-0" id="nav-auth-section"></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===================================================================
+       REPORT LOST ITEM FORM
+  =================================================================== -->
+  <main class="py-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-9">
+          
+          <div class="text-center mb-4">
+            <span class="badge bg-danger bg-opacity-10 text-danger px-3 py-2 rounded-pill fw-semibold mb-2">
+              <i class="fas fa-search me-1"></i> Missing Item Notification
+            </span>
+            <h2 class="fw-bold mb-2">Report a Lost Item</h2>
+            <p class="text-muted" style="max-width: 600px; margin: 0 auto;">
+              Fill in the details below with specific identifiers. Our smart matching algorithm will immediately cross-reference all found campus items.
+            </p>
+          </div>
+
+          <div class="form-card">
+            <form id="reportLostForm">
+              
+              <!-- Basic Info -->
+              <h5 class="fw-bold text-primary mb-3 pb-2 border-bottom">
+                <i class="fas fa-info-circle me-2"></i>1. Item Information
+              </h5>
+
+              <div class="row g-3 mb-4">
+                <div class="col-md-8">
+                  <label for="itemName" class="form-label">Item Name <span class="text-danger">*</span></label>
+                  <input type="text" id="itemName" class="form-control" placeholder="e.g. Black Boat Rockerz Earphones" required>
+                  <small class="text-muted">Include the type and key identifying name.</small>
+                </div>
+
+                <div class="col-md-4">
+                  <label for="category" class="form-label">Category <span class="text-danger">*</span></label>
+                  <select id="category" class="form-select" required>
+                    <option value="" disabled selected>Select Category</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="ID Cards">ID Cards</option>
+                    <option value="Books">Books & Records</option>
+                    <option value="Accessories">Accessories</option>
+                    <option value="Bags">Bags & Backpacks</option>
+                    <option value="Keys">Keys</option>
+                    <option value="Documents">Documents</option>
+                    <option value="Clothing">Clothing</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+
+                <div class="col-12">
+                  <label for="description" class="form-label">Description</label>
+                  <textarea id="description" rows="3" class="form-control" placeholder="Provide context on where and how the item was lost, sentimental value, or notes..."></textarea>
+                </div>
+              </div>
+
+              <!-- Time & Place -->
+              <h5 class="fw-bold text-primary mb-3 pb-2 border-bottom">
+                <i class="fas fa-location-dot me-2"></i>2. Time & Location
+              </h5>
+
+              <div class="row g-3 mb-4">
+                <div class="col-md-6">
+                  <label for="location" class="form-label">Location Lost <span class="text-danger">*</span></label>
+                  <input type="text" id="location" class="form-control" placeholder="e.g. Central Library 2nd Floor, Room 204, Cafeteria" required>
+                </div>
+
+                <div class="col-md-3">
+                  <label for="itemDate" class="form-label">Date Lost</label>
+                  <input type="date" id="itemDate" class="form-control">
+                </div>
+
+                <div class="col-md-3">
+                  <label for="itemTime" class="form-label">Approximate Time</label>
+                  <input type="text" id="itemTime" class="form-control" placeholder="e.g. 02:30 PM / Morning">
+                </div>
+              </div>
+
+              <!-- Item Specifics -->
+              <h5 class="fw-bold text-primary mb-3 pb-2 border-bottom">
+                <i class="fas fa-fingerprint me-2"></i>3. Identifying Characteristics
+              </h5>
+
+              <div class="row g-3 mb-4">
+                <div class="col-md-4">
+                  <label for="brand" class="form-label">Brand / Make</label>
+                  <input type="text" id="brand" class="form-control" placeholder="e.g. Boat, HP, Casio, Wildcraft">
+                </div>
+
+                <div class="col-md-4">
+                  <label for="color" class="form-label">Primary Color</label>
+                  <input type="text" id="color" class="form-control" placeholder="e.g. Black, Blue, Silver">
+                </div>
+
+                <div class="col-md-4">
+                  <label for="contactInfo" class="form-label">Contact Phone / Email</label>
+                  <input type="text" id="contactInfo" class="form-control" placeholder="Phone or email to reach you">
+                </div>
+
+                <div class="col-12">
+                  <label for="identifyingDetails" class="form-label">Unique Markings / Details</label>
+                  <textarea id="identifyingDetails" rows="2" class="form-control" placeholder="e.g. Stickers on cover, scratches, roll number written on back, specific keychain..."></textarea>
+                </div>
+              </div>
+
+              <!-- Photo Upload -->
+              <h5 class="fw-bold text-primary mb-3 pb-2 border-bottom">
+                <i class="fas fa-camera me-2"></i>4. Photo / Image (Optional)
+              </h5>
+
+              <div class="row g-3 mb-4">
+                <div class="col-md-6">
+                  <label for="imageFile" class="form-label">Upload Photo from Device</label>
+                  <input type="file" id="imageFile" class="form-control" accept="image/*">
+                  <small class="text-muted">Supports JPG, PNG, WEBP (Max 10MB)</small>
+                </div>
+                <div class="col-md-6">
+                  <label for="imageUrl" class="form-label">Or Image URL</label>
+                  <input type="url" id="imageUrl" class="form-control" placeholder="https://example.com/item.jpg">
+                  <small class="text-muted">Paste an online reference image URL if available.</small>
+                </div>
+              </div>
+
+              <!-- Submit -->
+              <div class="pt-3 border-top d-flex justify-content-between align-items-center">
+                <a href="browse.html" class="btn btn-outline-custom">Cancel</a>
+                <button type="submit" id="submitReportBtn" class="btn btn-danger btn-lg px-4 fw-bold">
+                  <i class="fas fa-paper-plane me-2"></i> Submit Lost Report
+                </button>
+              </div>
+
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-custom">
+    <div class="container text-center">
+      <p class="mb-0 small">© 2026 Campus Lost & Found Portal • College Full-Stack Java Project</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/report.js"></script>
+</body>
+</html>
